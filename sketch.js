@@ -5,11 +5,13 @@ var music;
 
 function preload(){
     // load sound here
+    music = loadSound("music.mp3");
 }
 
 
 function setup(){
     canvas = createCanvas(800,600);
+
 
     block1 = createSprite(0,580,360,30);
     block1.shapeColor = "blue";
@@ -36,10 +38,7 @@ function draw() {
     background(rgb(169,169,169));
     edges=createEdgeSprites();
     ball.bounceOff(edges);
-    ball.bounceOff(block1);
-    ball.bounceOff(block2);
-    ball.bounceOff(block3);
-    ball.bounceOff(block4);
+    
    
 
     //write code to bounce off ball from the block1 
@@ -63,13 +62,11 @@ function draw() {
     //write code to bounce off ball from the block3
     if(block3.isTouching(ball) && ball.bounceOff(block3)){
         ball.shapeColor = "red";
-        music.play();
     }
 
     //write code to bounce off ball from the block4
     if(block4.isTouching(ball) && ball.bounceOff(block4)){
         ball.shapeColor = "yellow";
-        music.play();
     }
     drawSprites();
 }
